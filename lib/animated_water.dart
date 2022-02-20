@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:water_reminder/water_container.dart';
 
 class AnimatedWater extends StatefulWidget {
-  final double waveHeight;
   final double height;
   final Color color;
 
-  const AnimatedWater({Key? key, required this.waveHeight, required this.height, required this.color}) : super(key: key);
+  const AnimatedWater({Key? key, required this.height, required this.color}) : super(key: key);
 
   @override
   State<AnimatedWater> createState() => _AnimatedWaterState();
@@ -32,7 +31,7 @@ class _AnimatedWaterState extends State<AnimatedWater> with TickerProviderStateM
     _controllerY3 = AnimationController(vsync: this, duration: const Duration(milliseconds: 1500));
     _controllerY4 = AnimationController(vsync: this, duration: const Duration(milliseconds: 1500));
 
-    _y1 = Tween<double>(begin: 0, end: widget.waveHeight).animate(CurvedAnimation(parent: _controllerY1, curve: Curves.easeInOut))
+    _y1 = Tween<double>(begin: 1, end: widget.height).animate(CurvedAnimation(parent: _controllerY1, curve: Curves.easeInOut))
       ..addListener(() => setState(() {}))
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -42,7 +41,7 @@ class _AnimatedWaterState extends State<AnimatedWater> with TickerProviderStateM
         }
       });
 
-    _y2 = Tween<double>(begin: 0, end: widget.waveHeight).animate(CurvedAnimation(parent: _controllerY2, curve: Curves.easeInOut))
+    _y2 = Tween<double>(begin: 1, end: widget.height).animate(CurvedAnimation(parent: _controllerY2, curve: Curves.easeInOut))
       ..addListener(() => setState(() {}))
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -51,7 +50,7 @@ class _AnimatedWaterState extends State<AnimatedWater> with TickerProviderStateM
           _controllerY2.forward();
         }
       });
-    _y3 = Tween<double>(begin: 0, end: widget.waveHeight).animate(CurvedAnimation(parent: _controllerY3, curve: Curves.easeInOut))
+    _y3 = Tween<double>(begin: 1, end: widget.height).animate(CurvedAnimation(parent: _controllerY3, curve: Curves.easeInOut))
       ..addListener(() => setState(() {}))
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -60,7 +59,7 @@ class _AnimatedWaterState extends State<AnimatedWater> with TickerProviderStateM
           _controllerY3.forward();
         }
       });
-    _y4 = Tween<double>(begin: 0, end: widget.waveHeight).animate(CurvedAnimation(parent: _controllerY4, curve: Curves.easeInOut))
+    _y4 = Tween<double>(begin: 1, end: widget.height).animate(CurvedAnimation(parent: _controllerY4, curve: Curves.easeInOut))
       ..addListener(() => setState(() {}))
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
